@@ -1,0 +1,27 @@
+name: OS and Docker Info
+
+on:
+  push:
+
+jobs:
+  info:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Print OS version
+        run: |
+          echo "Operating System:"
+          uname -a
+          echo ""
+          echo "OS Release Info:"
+          cat /etc/os-release
+
+      - name: Print Docker version
+        run: |
+          echo "Docker Version:"
+          docker --version
+          echo ""
+          docker version
